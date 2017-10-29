@@ -15,11 +15,13 @@ import { ProtectedComponent } from './protected/protected.component';
 import { AUTH_PROVIDERS } from './auth.service';
 import { LoggedInGuard } from './logged-in.guard';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'contact', component: ContactComponent},
+  { path: 'settings', component: SettingsComponent},
   { path: 'chat', component: ChatboxComponent},
   { path: 'login', component: LoginComponent},
   { path: '',
@@ -46,12 +48,13 @@ const appRoutes: Routes = [
     TwoButtonComponent,
     ProtectedComponent,
     NavbarComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, {useHash: true}),
   ],
   providers: [AUTH_PROVIDERS, LoggedInGuard],
   bootstrap: [AppComponent]

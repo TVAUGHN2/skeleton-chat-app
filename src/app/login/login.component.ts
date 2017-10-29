@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -6,11 +6,15 @@ import { AuthService } from '../auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   message: string;
+  loginTxt: string;
+  forgotTxt: string;
 
   constructor(public authService: AuthService) {
     this.message = '';
+    this.loginTxt = "Login";
+    this.forgotTxt = "Forgot Password";
   }
 
   login(username: string, password: string): boolean {
@@ -27,6 +31,10 @@ export class LoginComponent {
   logout(): boolean {
     this.authService.logout();
     return false;
+  }
+
+  ngOnInit(){
+
   }
 
 }

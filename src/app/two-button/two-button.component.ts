@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-two-button',
@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./two-button.component.css']
 })
 export class TwoButtonComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  @Input() positiveBtnText: string;
+  @Input() negativeBtnText: string;
+  
+  constructor() {
   }
 
+  clickPositive(): void {
+    //this.positiveFunction();
+  }
+  clickNegative(): void {
+    //this.negativeFunction();
+  }
+
+  ngOnInit() {
+
+  }
 }

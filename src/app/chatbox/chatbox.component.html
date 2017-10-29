@@ -7,14 +7,13 @@
                 <div class="panel-heading" style="background-color:#00B4CC" id="accordion">
                     <span class="glyphicon glyphicon-comment"></span> Chat
                     <div class="btn-group pull-right">
-                      <!--  TV: COULD NOT GET THIS TO WORK
-                        <a type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                        <a type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" (click)="collapse()">
                             <span class="glyphicon glyphicon-chevron-down"></span>
                         </a>
-                      -->
+                    
                     </div>
                 </div>
-            <div class="panel-collapse collapse in" id="collapseOne">
+            <div class="panel-collapse collapse in" id="collapseOne" *ngIf="!isCollapsed">
                 <div class="panel-body" id="chatBody">
                     <ul class="chat" *ngFor= "let msg of displayMsgs">
                         <li class="left clearfix" *ngIf="!isUser(msg)">
@@ -38,7 +37,7 @@
                             <div class="chat-body clearfix">
                                 <div class="header">
                                     <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>{{msg["time"]}}</small>
-                                    <strong class="pull-right primary-font">{{ authService.getUser()["fname"] }} {{ authService.getUser()["lname"] }}</strong>
+                                    <strong class="pull-right primary-font">{{ authService.getUser()["fname"] }} </strong>
                                 </div>
                                 <p>
                                     {{msg["msg"]}}

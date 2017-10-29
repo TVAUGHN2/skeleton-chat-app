@@ -1,1 +1,9 @@
-<app-login></app-login>
+<div class="home-container">
+  <div>
+    <app-login></app-login>
+  </div>
+
+  <div class="chatbox" *ngIf="authService.getUser()['email']">
+    <app-chatbox></app-chatbox>
+  </div>
+</div>

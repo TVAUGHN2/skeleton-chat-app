@@ -8,15 +8,17 @@ import { AuthService } from '../auth.service';
   templateUrl: './chatbox.component.html',
   styleUrls: ['./chatbox.component.css']
 })
-export class ChatboxComponent {
+export class ChatboxComponent implements OnInit{
     chatMessages: ChatMessages;
     messagesNotUsed: string[];
     displayMsgs: {}[];
+    isCollapsed: boolean;
 
     constructor(public authService: AuthService) {
       this.chatMessages = new ChatMessages();
       this.messagesNotUsed = this.chatMessages.chatMessages.slice();
       this.displayMsgs = [];
+      this.isCollapsed = false;
     }
 
     respond(userMsgHtml: HTMLInputElement): void{
@@ -54,6 +56,15 @@ export class ChatboxComponent {
         return true;
       }
       return false;
+    }
+
+    collapse(): boolean{
+      this.isCollapsed = !this.isCollapsed;
+      return this.isCollapsed;
+    }
+
+    ngOnInit(){
+      //this.isCollapsed = true;
     }
 
 }

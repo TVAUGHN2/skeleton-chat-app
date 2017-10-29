@@ -1,0 +1,9 @@
+.home-container{
+    width: 100%;
+}
+
+.chatbox{
+    position:fixed;
+    bottom: 0px;
+    left: 0px;
+}
